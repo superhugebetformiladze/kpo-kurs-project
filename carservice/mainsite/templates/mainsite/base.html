@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/css/bootstrap.min.css">
+    <title>Страница</title>
+</head>
+
+<body>
+    {% block navbar %}
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <a class="navbar-brand" href="#">Автосервис</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Главная</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">О компании</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Товары</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Контакты</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    {% endblock %}
+
+    {% block content %}
+        <!-- Изображение на всю ширину экрана и высотой в один экран -->
+        <div class="jumbotron jumbotron-fluid">
+            <div class="container">
+                <h1 class="display-4">Добро пожаловать в нашу компанию</h1>
+                <p class="lead">Мы предлагаем лучшие товары и услуги для вас.</p>
+            </div>
+        </div>
+    
+        <!-- Описание компании -->
+        <div class="container">
+            <section>
+                <h2>О компании</h2>
+                <p>Здесь вы можете оставить описание вашей компании.</p>
+            </section>
+    
+            <!-- Список товаров в виде карточек -->
+            <section>
+                <h2>Товары</h2>
+                <div class="row">
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="card">
+                            <img src="https://via.placeholder.com/150" class="card-img-top" alt="Товар 1">
+                            <div class="card-body">
+                                <h5 class="card-title">Товар 1</h5>
+                                <p class="card-text">Описание товара 1.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="card">
+                            <img src="https://via.placeholder.com/150" class="card-img-top" alt="Товар 2">
+                            <div class="card-body">
+                                <h5 class="card-title">Товар 2</h5>
+                                <p class="card-text">Описание товара 2.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="card">
+                            <img src="https://via.placeholder.com/150" class="card-img-top" alt="Товар 3">
+                            <div class="card-body">
+                                <h5 class="card-title">Товар 3</h5>
+                                <p class="card-text">Описание товара 3.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+    
+            <!-- Дополнительная информация -->
+            <section>
+                <h2>Дополнительная информация</h2>
+                <p>Здесь вы можете добавить дополнительную информацию о вашей компании.</p>
+            </section>
+        </div>
+    {% endblock %}
+
+    {% block footer %}
+    <footer class="bg-dark text-white text-center py-3">
+        <div class="container">
+            &copy; 2023 Ваша компания. Все права защищены.
+        </div>
+    </footer>
+    {% endblock %}
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
