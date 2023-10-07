@@ -1,1 +1,62 @@
 {% extends "mainsite/base.html" %}
+
+{% block content %}
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-6">
+            <!-- Большое изображение услуги -->
+            <img src="service_image.jpg" alt="Изображение услуги" class="img-fluid">
+        </div>
+        <div class="col-md-6">
+            <!-- Название услуги -->
+            <h1>Название вашей услуги</h1>
+            <!-- Описание услуги -->
+            <p>Описание вашей услуги будет здесь. Вы можете добавить дополнительную информацию о ней.</p>
+            <!-- Дополнительная информация -->
+            <ul>
+                <li>Пункт 1</li>
+                <li>Пункт 2</li>
+                <li>Пункт 3</li>
+            </ul>
+            <!-- Цена услуги -->
+            <p>Цена: $100</p>
+        </div>
+    </div>
+</div>
+
+<!-- Секция с другими услугами -->
+<div class="container mt-5">
+    <h2>Другие услуги</h2>
+    <div class="row">
+        <!-- Карточка 1 -->
+        <div class="col-md-6">
+            <div class="card">
+                <img src="service1_image.jpg" alt="Изображение услуги 1" class="card-img-top">
+                <div class="card-body">
+                    <h5 class="card-title">Название услуги 1</h5>
+                    <p class="card-text">Краткое описание услуги 1.</p>
+                    <a href="#" class="btn btn-primary">Подробнее</a>
+                </div>
+            </div>
+        </div>
+        <!-- Карточка 2 -->
+        <div class="col-md-6">
+            <div class="card">
+                <img src="service2_image.jpg" alt="Изображение услуги 2" class="card-img-top">
+                <div class="card-body">
+                    <h5 class="card-title">Название услуги 2</h5>
+                    <p class="card-text">Краткое описание услуги 2.</p>
+                    <a href="#" class="btn btn-primary">Подробнее</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Кнопка "Посмотреть все услуги" -->
+<div class="container mt-4 text-center">
+    <a href="#" class="btn btn-primary">Посмотреть все услуги</a>
+</div>
+
+{% endblock %}

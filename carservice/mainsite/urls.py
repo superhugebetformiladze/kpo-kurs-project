@@ -1,7 +1,12 @@
 from django.urls import path
-from . import views
+from django.conf import settings
+from .views import *
+from django.conf.urls.static import static
 
 urlpatterns = [
-    path('', views.index, name='index'),
-    path('service/<str:service_name>/', views.service_detail, name='service_detail'), 
+    path('', index, name='index'),
+    path('service/<int:service_id>/', service_detail, name='service_detail'), 
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
