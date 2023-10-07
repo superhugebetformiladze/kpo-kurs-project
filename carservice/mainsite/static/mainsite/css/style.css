@@ -1,0 +1,30 @@
+body {
+    font-family: 'Raleway', sans-serif;
+}
+
+.header {
+    background-image: url("/static/mainsite/images/main-page-img.jpg");
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+}
+
+.overlay {
+    position: absolute;
+    min-height: 100%;
+    min-width: 100%;
+    left: 0;
+    top: 0;
+}
+
+.description {
+    position: absolute;
+    top: 25%;
+    font-size: 2rem;
+    color: #fff;
+}
+
+p {
+    font-size: 1.2rem;
+}
+
