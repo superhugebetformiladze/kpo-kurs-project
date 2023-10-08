@@ -11,5 +11,6 @@ class Service(models.Model):
 
     def __str__(self):
         return self.name
+    
     def get_absolute_url(self):
         return reverse('service_detail', kwargs={'service_id': self.pk})

@@ -5,7 +5,8 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('', index, name='index'),
-    path('service/<int:service_id>/', service_detail, name='service_detail'), 
+    path('service/<int:service_id>/', service_detail, name='service_detail'),
+    path('services', services, name='services'),
 ]
 
 if settings.DEBUG:

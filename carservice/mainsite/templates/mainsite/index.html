@@ -25,7 +25,8 @@
 
     <!-- Список товаров в виде карточек -->
     <section id="services">
-        <h2>Товары</h2>
+        <h2>Услуги</h2>
+        <a href="{% url 'services' %}"><h2>Посмотреть все</h2></a>
         <div class="row">
             {% for service in services %}
             <div class="col-lg-4 col-md-6 mb-4">

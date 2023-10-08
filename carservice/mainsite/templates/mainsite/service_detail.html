@@ -1,62 +1,56 @@
 {% extends "mainsite/base.html" %}
 
+{% block navbar %}
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="{% url 'index' %}">TechCenter</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link" data-value="services" href="{% url 'services' %}">Товары</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+{% endblock %}
+
 {% block content %}
 
 <div class="container mt-5">
     <div class="row">
         <div class="col-md-6">
-            <!-- Большое изображение услуги -->
-            <img src="service_image.jpg" alt="Изображение услуги" class="img-fluid">
+            <img src="{{ service.image.url }}" class="img-fluid">
         </div>
         <div class="col-md-6">
-            <!-- Название услуги -->
-            <h1>Название вашей услуги</h1>
-            <!-- Описание услуги -->
-            <p>Описание вашей услуги будет здесь. Вы можете добавить дополнительную информацию о ней.</p>
-            <!-- Дополнительная информация -->
-            <ul>
-                <li>Пункт 1</li>
-                <li>Пункт 2</li>
-                <li>Пункт 3</li>
-            </ul>
-            <!-- Цена услуги -->
-            <p>Цена: $100</p>
+            <h1>{{ service.name }}</h1>
+            <p>{{ service.description }}</p>
+            <p>{{ service.additional_info }}</p>
+            <p>Цена: {{ service.price }}</p>
         </div>
     </div>
 </div>
 
-<!-- Секция с другими услугами -->
 <div class="container mt-5">
-    <h2>Другие услуги</h2>
+    <a href="{% url 'services' %}"><h2>Все услуги</h2></a>
     <div class="row">
-        <!-- Карточка 1 -->
-        <div class="col-md-6">
-            <div class="card">
-                <img src="service1_image.jpg" alt="Изображение услуги 1" class="card-img-top">
-                <div class="card-body">
-                    <h5 class="card-title">Название услуги 1</h5>
-                    <p class="card-text">Краткое описание услуги 1.</p>
-                    <a href="#" class="btn btn-primary">Подробнее</a>
+        {% for service in services %}
+        <div class="col-lg-4 col-md-6 mb-4">
+            <a href="{{ service.get_absolute_url }}">
+                <div class="card">
+                    <img src="{{ service.image.url }}" class="card-img-top" alt="Товар 1">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ service.name }}</h5>
+                        <p class="card-text">{{ service.description }}</p>
+                    </div>
                 </div>
-            </div>
+            </a>
         </div>
-        <!-- Карточка 2 -->
-        <div class="col-md-6">
-            <div class="card">
-                <img src="service2_image.jpg" alt="Изображение услуги 2" class="card-img-top">
-                <div class="card-body">
-                    <h5 class="card-title">Название услуги 2</h5>
-                    <p class="card-text">Краткое описание услуги 2.</p>
-                    <a href="#" class="btn btn-primary">Подробнее</a>
-                </div>
-            </div>
-        </div>
+        {% endfor %}
     </div>
-</div>
-
-<!-- Кнопка "Посмотреть все услуги" -->
-<div class="container mt-4 text-center">
-    <a href="#" class="btn btn-primary">Посмотреть все услуги</a>
 </div>
 
 {% endblock %}
