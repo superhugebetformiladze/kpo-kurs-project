@@ -14,3 +14,14 @@ class Service(models.Model):
     
     def get_absolute_url(self):
         return reverse('service_detail', kwargs={'service_id': self.pk})
+    
+class ServiceRequest(models.Model):
+    name = models.CharField(max_length=255)
+    car_brand = models.CharField(max_length=255)
+    car_model = models.CharField(max_length=255)
+    service_name = models.CharField(max_length=255)
+    phone_number = models.CharField(max_length=11)
+    timestamp = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.name
