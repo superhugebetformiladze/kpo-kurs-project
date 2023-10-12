@@ -3,8 +3,12 @@ from django.conf import settings
 from .models import *
 from .forms import ServiceRequestForm
 from random import sample
-import telegram
+from django.urls import reverse
+from telegram import Bot
+import asyncio
 
+
+bot = Bot(token=settings.TELEGRAM_BOT_TOKEN)
 
 def index(request):
     if request.method == "POST":
@@ -13,7 +17,6 @@ def index(request):
             service_request = form.save()
             
             # Отправка сообщения в Telegram
-            bot = telegram.Bot(token=settings.TELEGRAM_BOT_TOKEN)
             chat_id = settings.TELEGRAM_CHAT_ID
             message_text = f"Новая заявка!\n\n" \
                            f"Имя: {service_request.name}\n" \
@@ -23,8 +26,10 @@ def index(request):
                            f"Номер телефона: {service_request.phone_number}\n" \
                            f"Время отправки: {service_request.timestamp}"
             
-            bot.send_message(chat_id=chat_id, text=message_text)
-            
+            loop = asyncio.new_event_loop()
+            asyncio.set_event_loop(loop)
+            loop.run_until_complete(bot.send_message(chat_id, message_text))
+                     
             return redirect('index')
     else:
         form = ServiceRequestForm()
