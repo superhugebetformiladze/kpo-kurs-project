@@ -12,8 +12,8 @@
 </header>
 
 <!-- Описание компании -->
-<div class="container mt-4 mb-4">
-    <section id="about">
+<div class="container mb-4">
+    <section id="about" style="padding-top: 56px;">
         <h2>О компании</h2>
         <p>TechCenter - это автосервис, который объединяет в себе профессионализм, передовые технологии и выдающееся обслуживание, чтобы обеспечить владельцам автомобилей наилучший опыт в уходе за своими транспортными средствами.
             Наши ценности:
@@ -24,7 +24,7 @@
     </section>
 
     <!-- Список товаров в виде карточек -->
-    <section id="services">
+    <section id="services" style="padding-top: 56px;">
         <h2>Услуги</h2>
         <a href="{% url 'services' %}"><h2>Посмотреть все</h2></a>
         <div class="row">
@@ -32,10 +32,10 @@
             <div class="col-lg-4 col-md-6 mb-4">
                 <a href="{{ service.get_absolute_url }}">
                     <div class="card">
-                        <img src="{{ service.image.url }}" class="card-img-top" alt="Товар 1">
+                        <img src="{{ service.image.url }}" class="card-img-top" alt="Товар 1" style="height: 15rem; object-fit: cover;">
                         <div class="card-body">
-                            <h5 class="card-title">{{ service.name }}</h5>
-                            <p class="card-text">{{ service.description }}</p>
+                            <h5 class="card-title" style="display: -webkit-box;-webkit-line-clamp: 2;-webkit-box-orient: vertical;overflow: hidden;">{{ service.name }}</h5>
+                            <p class="card-text" style="display: -webkit-box;-webkit-line-clamp: 2;-webkit-box-orient: vertical;overflow: hidden;">{{ service.description }}</p>
                         </div>
                     </div>
                 </a>
@@ -45,8 +45,8 @@
     </section>
 
     <!-- Дополнительная информация -->
-    <section id="contacts">
-        <h2>Дополнительная информация</h2>
+    <section id="contacts" style="padding-top: 56px;">
+        <h2>Оставьте заявку на наши услуги</h2>
         <p>Здесь вы можете добавить дополнительную информацию о вашей компании.</p>
     </section>
 
