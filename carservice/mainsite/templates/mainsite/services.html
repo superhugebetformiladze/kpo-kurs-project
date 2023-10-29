@@ -18,7 +18,9 @@
             <div class="col-lg-4 col-md-6 mb-4">
                 <a href="{{ service.get_absolute_url }}">
                     <div class="card">
-                        <img src="{{ service.image.url }}" class="card-img-top" alt="Товар 1" style="height: 15rem; object-fit: cover;">
+                        <div class="image-container">
+                            <img src="{{ service.image.url }}" class="card-img-top img-zoom" alt="Service Image">
+                        </div>
                         <div class="card-body">
                             <h5 class="card-title" style="display: -webkit-box;-webkit-line-clamp: 2;-webkit-box-orient: vertical;overflow: hidden;">{{ service.name }}</h5>
                             <p class="card-text" style="display: -webkit-box;-webkit-line-clamp: 2;-webkit-box-orient: vertical;overflow: hidden;">{{ service.description }}</p>
