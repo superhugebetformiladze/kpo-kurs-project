@@ -28,3 +28,81 @@ p {
     font-size: 1.2rem;
 }
 
+a {
+    text-decoration: none;
+}
+
+h2 {
+    font-weight: 600;
+}
+
+.wrapper-background {
+    background-color: #f8e8d1;
+    border-radius: 40px 40px 0 0;
+}
+
+.wrapper-request-form {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.request-text {
+    display: flex;
+    flex-direction: column;
+    margin-right: 2rem;
+}
+
+.request-form {
+    width: 70%;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 1.5rem;
+    border: none;
+    border-radius: 5px;
+}
+
+input[type="text"]:focus {
+    border: none;
+}
+
+button[type="submit"] {
+    margin-top: 1rem;
+    font-weight: 600;
+    background-color: #007BFF;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+button[type="submit"]:hover {
+    background-color: #066cda;
+}
+
+@media (max-width: 767px) {
+    .wrapper-request-form {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .request-text {
+        margin-right: 0;
+        margin-bottom: 2rem;
+    }
+
+    .request-form {
+        width: auto;
+    }
+}
+

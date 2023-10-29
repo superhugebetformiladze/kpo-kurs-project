@@ -43,29 +43,45 @@
             {% endfor %}
         </div>
     </section>
-
-    <!-- Дополнительная информация -->
-    <section id="contacts" style="padding-top: 56px;">
-        <h2>Оставьте заявку на наши услуги</h2>
-        <p>Здесь вы можете добавить дополнительную информацию о вашей компании.</p>
-    </section>
-
-    <form method="post" action="{{service_request_url}}">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Отправить заявку</button>
-    </form>
-    {% if form.errors %}
-        <div class="alert alert-danger mt-3">
-            <strong>Ошибки в форме:</strong>
-            <ul>
-                {% for error in form.errors %}
-                    <li>{{ error }}</li>
-                {% endfor %}
-            </ul>
-        </div>
-    {% endif %}
-    
 </div>
+
+<div class="wrapper-background">
+    <div class="container pb-4">
+        <section id="service-request" style="padding-top: 56px;">
+
+            <div class="wrapper-request-form">
+        
+                <div class="request-text">
+                    <h2>Оставьте заявку на наши услуги</h2>
+                    <p>Оставьте заявку и мы свяжемся с вами для уточнения работ.</p>
+                </div>
+        
+                <div class="request-form">
+                    <form method="post" action="{{service_request_url}}">
+                        {% csrf_token %}
+                        {{ form.as_div }}
+                        <button type="submit">Отправить заявку</button>
+                    </form>
+                    {% if form.errors %}
+                        <div class="alert alert-danger mt-3">
+                            <strong>Ошибки в форме:</strong>
+                            <ul>
+                                {% for error in form.errors %}
+                                    <li>{{ error }}</li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    {% endif %}
+        
+                </div>
+        
+            </div>
+        
+        </section>
+    </div>
+</div>
+
+    
+
 
 {% endblock %}

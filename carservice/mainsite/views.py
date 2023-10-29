@@ -6,6 +6,7 @@ from random import sample
 from django.urls import reverse
 from telegram import Bot
 import asyncio
+from datetime import datetime
 
 
 bot = Bot(token=settings.TELEGRAM_BOT_TOKEN)
@@ -18,13 +19,16 @@ def index(request):
             
             # Отправка сообщения в Telegram
             chat_id = settings.TELEGRAM_CHAT_ID
+            formatted_timestamp = service_request.timestamp.strftime('%H:%M, %d-%m-%Y')
+        
+
             message_text = f"Новая заявка!\n\n" \
                            f"Имя: {service_request.name}\n" \
                            f"Марка автомобиля: {service_request.car_brand}\n" \
                            f"Модель автомобиля: {service_request.car_model}\n" \
                            f"Услуга: {service_request.service_name}\n" \
                            f"Номер телефона: {service_request.phone_number}\n" \
-                           f"Время отправки: {service_request.timestamp}"
+                           f"Время отправки: {formatted_timestamp}"
             
             loop = asyncio.new_event_loop()
             asyncio.set_event_loop(loop)
