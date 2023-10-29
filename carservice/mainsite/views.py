@@ -6,7 +6,6 @@ from random import sample
 from django.urls import reverse
 from telegram import Bot
 import asyncio
-from datetime import datetime
 
 
 bot = Bot(token=settings.TELEGRAM_BOT_TOKEN)
@@ -39,15 +38,15 @@ def index(request):
         form = ServiceRequestForm()
 
     services = Service.objects.all()
-    random_services = sample(list(services), 3)
+    random_services = sample(list(services), min(len(services), 3))
     service_request_url = reverse('service_request_submission')
 
     return render(request, 'mainsite/index.html', {'services': random_services, 'form': form, 'service_request_url': service_request_url})
 
 def service_detail(request, service_id):
     service = get_object_or_404(Service, pk=service_id)
-    services = Service.objects.all()
-    random_services = sample(list(services.exclude(pk=service_id)), 3)
+    services = Service.objects.exclude(pk=service_id)
+    random_services = sample(list(services), min(len(services), 3))
     return render(request, 'mainsite/service_detail.html', {'service': service, 'services': random_services})
 
 def services(request):
